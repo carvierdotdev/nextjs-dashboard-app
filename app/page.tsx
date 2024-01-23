@@ -1,5 +1,6 @@
 import styles from '@/app/ui/home.module.css';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 import Link from 'next/link';
 import AcmeLogo from './ui/acme-logo';
 import { lusitana } from './ui/fonts/fonts';
@@ -35,6 +36,20 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
+          <Image
+            alt="Screenshots of the dashboard project showing desktop version"
+            src="/hero-desktop.png"
+            width={2000}
+            height={1520}
+            className="hidden md:block"
+          />
+          <Image
+            alt="Screenshots of the dashboard project showing mobile version"
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            className="block md:hidden"
+          />
         </div>
       </div>
     </main>
