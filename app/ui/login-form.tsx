@@ -1,12 +1,8 @@
-import { lusitana } from '@/app/ui/fonts';
-import {
-  AtSymbolIcon,
-  KeyIcon,
-  ExclamationCircleIcon,
-} from '@heroicons/react/24/outline';
+import { lusitana } from '@/app/ui/fonts/fonts';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { AtSymbolIcon, KeyIcon } from '@heroicons/react/24/outline';
 import { Button } from './button';
-
+// import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 export default function LoginForm() {
   return (
     <form className="space-y-3">
