@@ -1,8 +1,9 @@
+// By adding the 'use server', you mark all the exported functions within the file as server functions. These server functions can then be imported into Client and Server components, making them extremely versatile.
 'use server';
 
 import { sql } from '@vercel/postgres';
-// By adding the 'use server', you mark all the exported functions within the file as server functions. These server functions can then be imported into Client and Server components, making them extremely versatile.
-
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const FormSchema = z.object({
@@ -24,7 +25,10 @@ export async function createInvoice(formData: FormData) {
   const date = new Date().toISOString().split('T')[0];
 
   await sql`
-    INSERT INTO invoices (customerId, amount, status, date)
+    INSERT INTO invoices (customer_id, amount, status, date)
     VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `;
+
+  revalidatePath('/dashboard/invoices');
+  redirect('/dashboard/invoices');
 }
