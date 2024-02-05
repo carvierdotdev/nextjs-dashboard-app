@@ -9,8 +9,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     fetchCustomers(),
   ]);
 
-  console.log(id);
-
   return (
     <main>
       <Breadcrumbs
