@@ -46,7 +46,7 @@ export async function updateInvoice(id: string, formData: FormData) {
 
   await sql`
     UPDATE invoices
-    SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
+    SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}, date = ${date}
     WHERE id = ${id}
   `;
 
