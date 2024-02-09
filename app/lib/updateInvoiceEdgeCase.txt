@@ -1,0 +1,24 @@
+TODO: An edge case apparently when editing the form but don't make any changes.
+
+BIA:
+You can test if the form data has changed by comparing the initial form data with the current form data. Here's a simple way to do it:
+
+1. **Store the initial form data**: When the form is first loaded, save the initial form data in a state variable.
+
+```jsx
+const [initialFormData, setInitialFormData] = useState(formData);
+```
+
+2. **Compare the initial and current form data**: Before submitting the form, compare the initial form data with the current form data. If they are the same, it means the user hasn't made any changes.
+
+```jsx
+if (JSON.stringify(formData) === JSON.stringify(initialFormData)) {
+  console.log('No changes were made.');
+}
+```
+
+In this code, `JSON.stringify` is used to convert the form data objects into strings for comparison. If the strings are the same, it means the form data hasn't changed.
+
+3. **Test it**: To test it, try editing the form but don't make any changes. When you submit the form, you should see the message 'No changes were made.' in the console. If you make any changes to the form and submit it, you shouldn't see this message.
+
+Remember to replace `formData` with the actual variable or state that holds your form data. This is a simple way to test if the form data has changed. For a more comprehensive test, you might want to consider using a testing library or framework.
