@@ -150,9 +150,10 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           Create Invoice
         </Button>
       </div>
-      {/* TODO "Missing Fields. Failed to Create Invoice." */}
       <div id="invoice-submit-error" aria-live="polite" aria-atomic="true">
-        {/* <p className="mt-2 text-sm text-red-500"></p> */}
+        {state.message && (
+          <p className="mt-2 text-sm text-red-500">{state.message}</p>
+        )}
       </div>
     </form>
   );
